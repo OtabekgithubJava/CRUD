@@ -80,8 +80,36 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	function updateCard(card) {
 		const cardTitle = card.querySelector(".card-title");
-		const cardText = card.querySelector(".card-text");
-		cardTitle.textContent = titleInput.value || "Title";
-		cardText.textContent = contentInput.value || "Content";
+		const cardContent = card.querySelector(".card-text");
+		const cardPhoto = card.querySelector(".card-img-top");
+		const titleInput = document.querySelector("#titleInput");
+		const contentInput = document.querySelector("#contentInput");
+		const photoInput = document.querySelector("#photoInput");
+	  
+		// Check if title and content inputs are not empty
+		const newTitle = titleInput.value.trim();
+		const newContent = contentInput.value.trim();
+		if (!newTitle || !newContent) {
+			alert("Title and content cannot be empty.");
+			return;
+		}
+	  
+		cardTitle.textContent = newTitle;
+		cardContent.textContent = newContent;
+	
+		const newPhotoURL = photoInput.value.trim();
+		if (newPhotoURL) {
+			cardPhoto.src = newPhotoURL;
+		}
+	  
+		titleInput.value = "";
+		contentInput.value = "";
+		photoInput.value = "";
+	  
+		$('#exampleModal').modal('hide'); 
+		alert("Card updated successfully!");
+	  
+		currentCard = null;
 	}
+	
 });
