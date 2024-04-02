@@ -15,6 +15,29 @@
 		<title>lezzgoo</title>
 	</head>
 	<body>
+
+		<h2>The XMLHttpRequest Object</h2>
+		<button type="button" onclick="loadDoc()">Request data</button>
+
+		<p id="demo"></p>
+
+		<script>
+		function loadDoc() {
+
+		let login = {
+			userName : "test",
+			password: "test123"
+			};
+		const xhttp = new XMLHttpRequest();
+		xhttp.onload = function() {
+			document.getElementById("demo").innerHTML = this.responseText;
+		}
+		xhttp.open("POST", "https://api.sardorsohinazarov.uz/api/Auth/Login");
+		xhttp.setRequestHeader('Content-Type', 'application/json');
+		xhttp.send( JSON.stringify(login));
+		}
+		</script>
+ 
 		<div
 			class="modal fade"
 			id="exampleModal"

@@ -86,7 +86,6 @@ document.addEventListener("DOMContentLoaded", function () {
 		const contentInput = document.querySelector("#contentInput");
 		const photoInput = document.querySelector("#photoInput");
 	  
-		// Check if title and content inputs are not empty
 		const newTitle = titleInput.value.trim();
 		const newContent = contentInput.value.trim();
 		if (!newTitle || !newContent) {
